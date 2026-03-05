@@ -7,3 +7,11 @@ class QueryRequest(BaseModel):
 
 class QueryResponse(BaseModel):
     answer: str
+
+
+class IndexRequest(BaseModel):
+    content: str
+
+
+class IndexResponse(BaseModel):
+    message: str

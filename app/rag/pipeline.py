@@ -1,16 +1,21 @@
 from app.rag.retriever import Retriever
+from app.services.llm_service import LLMService
 
 
 class RagPipeline:
 
     def __init__(self):
         self.retriever = Retriever()
+        self.llm = LLMService()
 
     async def run(self, question: str) -> str:
-        # Step 1 — retrieve docs
+        # 1️⃣ Retrieve similar documents
         docs = await self.retriever.search(question)
 
-        # Step 2 — fake LLM generation (we add real LLM later)
-        context = " ".join(docs)
+        # 2️⃣ Merge context
+        context = "\n".join(docs)
 
-        return f"Generated answer using context: {context}"
+        # 3️⃣ Generate response using Gemini
+        answer = await self.llm.generate(question, context)
+
+        return answer
