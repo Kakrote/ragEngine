@@ -1,0 +1,24 @@
+# RAG Engine Dependencies
+
+# Web Framework
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+
+# Environment & Configuration
+python-dotenv==1.0.1
+pydantic==2.9.2
+
+# Database & Vector Store
+sqlalchemy[asyncio]==2.0.35
+asyncpg==0.30.0
+pgvector==0.3.4
+
+# PDF Processing
+pypdf==5.1.0
+
+# AI/ML & Embeddings
+google-generativeai==0.8.3
+google-api-core==2.23.0
+
+# Utilities
